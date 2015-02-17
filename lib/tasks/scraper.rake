@@ -27,6 +27,7 @@ namespace :scraper do
     result = JSON.parse(open(uri).read)
 
     # Store postings to database
+    
     result["postings"].each do |posting|
 
       # Create posts
@@ -37,13 +38,21 @@ namespace :scraper do
       @post.neighborhood = posting["location"]["locality"]
       @post.external_url = posting["external_url"]
       @post.timestamp = posting["timestamp"]
+      @post.bedrooms = posting["annotations"]["bedrooms"] if posting["annotations"]["bedrooms"].present?
+      @post.bathrooms = posting["annotations"]["bathrooms"] if posting["annotations"]["bathrooms"].present?
+      @post.sqft = posting["annotations"]["sqft"] if posting["annotations"]["sqft"].present?
+      @post.cats = posting["annotations"]["cats"] if posting["annotations"]["cats"].present?
+      @post.dogs = posting["annotations"]["dogs"] if posting["annotations"]["dogs"].present?
+      @post.w_d_in_unit = posting["annotations"]["w_d_in_unit"] if posting["annotations"]["w_d_in_unit"].present?
+      @post.street_parking = posting["annotations"]["street_parking"] if posting["annotations"]["street_parking"].present?
 
       # Save posts
       @post.save
     end
   end
 
-  desc "TODO"
-    task destroy_all_posts: :environment do
+  desc "Destroy all posting data"
+  task destroy_all_posts: :environment do
+    Post.destroy_all
   end
 end
