@@ -26,6 +26,9 @@ namespace :scraper do
     # Submit request
     result = JSON.parse(open(uri).read)
 
+    # TESTING only
+    # puts result["postings"].second["images"].first["full"]
+    
     # Store postings to database
     
     result["postings"].each do |posting|
@@ -48,6 +51,14 @@ namespace :scraper do
 
       # Save posts
       @post.save
+
+      # Loop over images and save to Image database
+      posting["images"].each do |image|
+        @image = Image.new
+        @image.url = image["full"]
+        @image.post_id = @post.id 
+        @image.save
+      end 
     end
   end
 
