@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Arimo|Cantarell|Montserrat);
 
 .center {
   text-align: center;
@@ -13,12 +14,13 @@
   height: 800px;
   margin: 0px;
   h1 {
-    font-family: 'Lato', 'Helvetica Neue', sans-serif;
+    font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
     text-transform: uppercase;
     color: #fff;
     text-shadow: 0px 2px 3px #555;
   }
   h2 {
+    font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
     color: #fff;
     text-shadow: 0px 2px 3px #555;
     margin-bottom: 80px;
@@ -29,7 +31,12 @@
 }
 
 .filter {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-size: 0.8em;
   background-color: rgba(215,226,241,0.9);
   padding: 20px 40px;
   border-radius: 10px;
+  .square_footage {
+    margin-top: 10px;
+  }
 }
