@@ -65,7 +65,6 @@ namespace :scraper do
       end
 
       Anchor.first.update(value: result["anchor"])
-      puts Anchor.first.value
       break if result["postings"].empty?
     end
   end
