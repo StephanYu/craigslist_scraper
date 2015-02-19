@@ -17,7 +17,7 @@
       </div>
 
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 reduced_padding">
           <%= text_field_tag :min_price, params["min_price"], placeholder: "minimum", class: "form-control input-sm" %>
           <%= text_field_tag :max_price, params["max_price"], placeholder: "maximum", class: "form-control input-sm" %>
         </div>
@@ -39,9 +39,9 @@
       </div>
       
       <div class="row">
-        <div class="col-md-4">
-          <%= text_field_tag :min_sqft, params["min_sqft"] %>
-          <%= text_field_tag :max_sqft, params["max_sqft"] %>
+        <div class="col-md-4 reduced_padding">
+          <%= text_field_tag :min_sqft, params["min_sqft"], class: "form-control input-sm" %>
+          <%= text_field_tag :max_sqft, params["max_sqft"], class: "form-control input-sm" %>
         </div>
         <div class="col-md-1">
           <%= label_tag :cats %>
